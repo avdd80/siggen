@@ -17,12 +17,11 @@ void setup ()
 	}
 	pinMode (1, PWM_OUTPUT);
 	
-	return
+	return;
 }
 
 main ()
 {
-	
 	setup ();
 
 	while (1)
