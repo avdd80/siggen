@@ -1,5 +1,5 @@
 
-int cosine_val = 
+int cosine_val[1024] = 
 {1023,
 1023,
 1023,
