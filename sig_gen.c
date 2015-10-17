@@ -53,8 +53,7 @@ main ()
 		pwmWrite (1, pwm_val);
 		
 		/* Add a delay of 1/360 seconds between two samples */
-		delay ((unsigned int) 53);
-		delayMicroseconds ((unsigned int) 333);
+		delayMicroseconds ((unsigned int) 2778);
 		counter++;
 		counter %= 360;
 		//printf ("\n%d", pwm_val);
