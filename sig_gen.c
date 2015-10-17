@@ -7,7 +7,6 @@
 
 int pwm_val = 0;
 int ramp_direction = UPRAMP;
-long int scale = 2^18;
 
 void setup ()
 {
@@ -35,17 +34,9 @@ main ()
 			ramp_direction = DOWNRAMP;
 		}
 		
-		if (!scale)
-		{
-			--scale;
-		}
-		else
-		{
-			scale = 2^14;
-			pwm_val += ramp_direction;
-			pwmWrite (1, pwm_val);
-			printf ("\n%d", pwm_val);
-		}
+		pwm_val += ramp_direction;
+		pwmWrite (1, pwm_val);
+		delayMicroseconds ((unsigned int) 976);
 	}
 	
 	return 0;
