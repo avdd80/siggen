@@ -25,7 +25,7 @@ void setup ()
 /* Returns the closest cosine value. Phase in degrees */
 int get_cosine_val (float phase)
 {
-	int phase_sampled = (int) (phase * 1024 / 360)
+	int phase_sampled = (int) (phase * 1024 / 360);
 	phase_sampled %= 1024;
 	if (phase_sampled < 0)
 	{
