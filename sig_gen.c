@@ -7,7 +7,7 @@
 
 int pwm_val = 0;
 int ramp_direction = UPRAMP;
-int scale = 2^14;
+long int scale = 2^18;
 
 void setup ()
 {
