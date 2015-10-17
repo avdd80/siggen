@@ -3,14 +3,27 @@
 
 #define UPRAMP    1
 #define DOWNRAMP -1
-#define TRIANGLE_WAVE_PEAK 0xFFF
+#define TRIANGLE_WAVE_PEAK 1024
 
 int pwm_val = 0;
 int ramp_direction = UPRAMP;
-int scale = 4095;
+int scale = 2^14;
+
+void setup ()
+{
+	if (wiringPiSetup ())
+	{
+		exit (1);
+	}
+	pinMode (1, PWM_OUTPUT);
+	
+	return
+}
 
 main ()
 {
+	
+	setup ();
 
 	while (1)
 	{
@@ -29,9 +42,9 @@ main ()
 		}
 		else
 		{
-			scale = 4095;
+			scale = 2^14;
 			pwm_val += ramp_direction;
-			printf ("\n%d", pwm_val);
+			pwmWrite (1, pwm_val);
 		}
 	}
 	
