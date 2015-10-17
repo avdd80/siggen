@@ -44,7 +44,7 @@ main ()
 			scale = 2^14;
 			pwm_val += ramp_direction;
 			pwmWrite (1, pwm_val);
-			print ("\n%d", pwm_val);
+			printf ("\n%d", pwm_val);
 		}
 	}
 	
