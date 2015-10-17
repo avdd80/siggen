@@ -53,7 +53,7 @@ main ()
 		delayMicroseconds ((unsigned int) 53333);
 		counter++;
 		counter %= 360;
-		//printf ("\n%d", pwm_val);
+		printf ("\n%d", pwm_val);
 	}
 	
 	return 0;
