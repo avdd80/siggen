@@ -1,5 +1,6 @@
 #include <wiringPi.h>
 #include <stdio.h>
+#include <math.h>
 #include "cos_wave.h"
 
 #define UPRAMP    1
@@ -23,8 +24,9 @@ void setup ()
 }
 
 /* Returns the closest cosine value from a LUT. angle in degrees */
-int get_cosine_val (float angle)
+int get_cosine_val (int angle)
 {
+	
 	angle %= 360;
 	if (angle < 0)
 	{
