@@ -22,23 +22,22 @@ void setup ()
 	return;
 }
 
-/* Returns the closest cosine value. Phase in degrees */
-int get_cosine_val (float phase)
+/* Returns the closest cosine value from a LUT. angle in degrees */
+int get_cosine_val (float angle)
 {
-	int phase_sampled = (int) (phase * 1024 / 360);
-	phase_sampled %= 1024;
-	if (phase_sampled < 0)
+	angle %= 360;
+	if (angle < 0)
 	{
-		phase_sampled += 1024;
+		angle += 360;
 	}
 	
-	if (phase_sampled > 1023)
+	if (angle > 359)
 	{
-		printf ("Bad phase value");
+		printf ("Bad angle value");
 		exit (1);
 	}
 	
-	return cosine_val[phase_sampled];
+	return cosine[angle];
 }
 
 main ()
@@ -50,7 +49,10 @@ main ()
 	{
 		pwm_val = get_cosine_val (counter);
 		pwmWrite (1, pwm_val);
-		delayMicroseconds ((unsigned int) 53333);
+		
+		/* Add a delay of 1/360 seconds between two samples */
+		delay ((unsigned int) 53);
+		delayMicroseconds ((unsigned int) 333);
 		counter++;
 		counter %= 360;
 		printf ("\n%d", pwm_val);
