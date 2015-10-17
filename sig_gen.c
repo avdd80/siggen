@@ -50,9 +50,9 @@ main ()
 	{
 		pwm_val += get_cosine_val (counter);
 		pwmWrite (1, pwm_val);
-		delayMicroseconds ((unsigned int) 976);
+		delayMicroseconds ((unsigned int) 53333);
 		counter++;
-		counter %= 1024;
+		counter %= 360;
 	}
 	
 	return 0;
