@@ -67,7 +67,7 @@ void gen_qpsk_symbols (int two_bit_data_packet)
 {
 	int i;
 	/* Generate sine and cosine basis symbols */
-	generate_basis_symbol (SAMPLES_PER_SUBFRAME, cosine_basis_symbol, 0);
+	generate_basis_symbol (15*32, cosine_basis_symbol, 0);
 	generate_basis_symbol (SAMPLES_PER_SUBFRAME, sine_basis_symbol, 270);
 	
 	for (i = 0; i < SAMPLES_PER_SUBFRAME; i++)
