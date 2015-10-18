@@ -43,7 +43,7 @@ void gen_qpsk_symbols (int two_bit_data_packet);
 
 void generate_basis_symbol (int number_of_samples, int* symbol_ptr, int phase)
 {
-	int sample_index = (int) round (phase * (SAMPLES_PER_SYMBOL / 360));
+	int sample_index = (int) (phase * (SAMPLES_PER_SYMBOL / 360));
 	
 	//printf ("\nEntered basis sym num_samples=%d, cos[%d] = %d", number_of_samples, cosine_wave [sample_index], sample_index);
 	while (number_of_samples)
