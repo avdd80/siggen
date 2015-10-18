@@ -30,6 +30,7 @@ QPSK symbol mapping
 
 #include <stdio.h>
 #include "common.h"
+#include "cosine.h"
 
 int cosine_basis_symbol[SAMPLES_PER_SUBFRAME];
 int sine_basis_symbol[SAMPLES_PER_SUBFRAME];
@@ -40,11 +41,26 @@ int qpsk_7pi_4 [SAMPLES_PER_SUBFRAME];
 
 void gen_qpsk_symbols (int two_bit_data_packet);
 
+void generate_basis_symbol (int number_of_samples, int* symbol_ptr, int phase)
+{
+	int sample_index = (int) round (phase * (SAMPLES_PER_SYMBOL / 360));
+	
+	while (!number_of_samples)
+	{
+		*symbol_ptr = cosine_wave [sample_index];
+		
+		sample_index++;
+		sample_index %= 32;
+		--number_of_samples;		
+	}
+}
+
 int main ()
 {
 	gen_qpsk_symbols (2);
 	return 0;
 }
+
 
 void gen_qpsk_symbols (int two_bit_data_packet)
 {
