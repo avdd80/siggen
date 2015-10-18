@@ -48,7 +48,7 @@ void generate_basis_symbol (int number_of_samples, int* symbol_ptr, int phase)
 	while (!number_of_samples)
 	{
 		*symbol_ptr = cosine_wave [sample_index];
-
+		printf ("\n%d", *symbol_ptr);
 		sample_index++;
 		sample_index %= 32;
 		symbol_ptr++;
@@ -80,7 +80,7 @@ void gen_qpsk_symbols (int two_bit_data_packet)
 
 	for (i = 0; i < SAMPLES_PER_SUBFRAME; i++)
 	{
-		printf ("\n%d", cosine_basis_symbol[i]);
+		//printf ("\n%d", cosine_basis_symbol[i]);
 		//qpsk_3pi_4[i] = (sine_basis_symbol[i]   - cosine_basis_symbol[i]) / 2;
 		//qpsk_5pi_4[i] = -1 * ((cosine_basis_symbol[i] + sine_basis_symbol[i]) >> 1);
 		//qpsk_7pi_4[i] = (cosine_basis_symbol[i] - sine_basis_symbol[i])/2;
