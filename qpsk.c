@@ -49,7 +49,7 @@ void generate_basis_symbol (int number_of_samples, int* symbol_ptr, int phase)
 	while (number_of_samples)
 	{
 		*symbol_ptr = cosine_wave [sample_index];
-		printf ("\n%d", *symbol_ptr);
+		printf ("\ncos[%d] = %d", sample_index, *symbol_ptr);
 		sample_index++;
 		sample_index %= 32;
 		symbol_ptr++;
