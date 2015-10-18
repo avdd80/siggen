@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "cos_wave.h"
+#include "cosine.h"
 #include "common.h"
 
 /*
