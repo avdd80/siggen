@@ -45,6 +45,7 @@ void generate_basis_symbol (int number_of_samples, int* symbol_ptr, int phase)
 {
 	int sample_index = (int) round (phase * (SAMPLES_PER_SYMBOL / 360));
 	
+	printf ("\nEntered basis sym num_samples=%d", number_of_samples);
 	while (!number_of_samples)
 	{
 		*symbol_ptr = cosine_wave [sample_index];
