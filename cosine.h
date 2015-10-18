@@ -1,3 +1,5 @@
+#ifndef _COSINE_H
+#define _COSINE_H
 int cosine[32] = 
 {
 31,
@@ -33,3 +35,5 @@ int cosine[32] =
 30,
 31
 };
+
+#endif /* _COSINE_H */
