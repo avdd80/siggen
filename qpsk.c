@@ -31,12 +31,12 @@ QPSK symbol mapping
 #include <stdio.h>
 #include "common.h"
 
-int cosine_basis_symbol[SYMBOLS_PER_SUBFRAME * SAMPLES_PER_SYMBOL];
-int sine_basis_symbol[SYMBOLS_PER_SUBFRAME * SAMPLES_PER_SYMBOL];
-int qpsk_pi_4  [SYMBOLS_PER_SUBFRAME * SAMPLES_PER_SYMBOL];
-int qpsk_3pi_4 [SYMBOLS_PER_SUBFRAME * SAMPLES_PER_SYMBOL];
-int qpsk_5pi_4 [SYMBOLS_PER_SUBFRAME * SAMPLES_PER_SYMBOL];
-int qpsk_7pi_4 [SYMBOLS_PER_SUBFRAME * SAMPLES_PER_SYMBOL];
+int cosine_basis_symbol[SAMPLES_PER_SUBFRAME];
+int sine_basis_symbol[SAMPLES_PER_SUBFRAME];
+int qpsk_pi_4  [SAMPLES_PER_SUBFRAME];
+int qpsk_3pi_4 [SAMPLES_PER_SUBFRAME];
+int qpsk_5pi_4 [SAMPLES_PER_SUBFRAME];
+int qpsk_7pi_4 [SAMPLES_PER_SUBFRAME];
 
 void gen_qpsk_symbols (int two_bit_data_packet);
 
@@ -50,10 +50,10 @@ void gen_qpsk_symbols (int two_bit_data_packet)
 {
 	int i;
 	/* Generate sine and cosine basis symbols */
-	generate_basis_symbol (SYMBOLS_PER_SUBFRAME * SAMPLES_PER_SYMBOL, cosine_basis_symbol, 0);
-	generate_basis_symbol (SYMBOLS_PER_SUBFRAME * SAMPLES_PER_SYMBOL, sine_basis_symbol, 270);
+	generate_basis_symbol (SAMPLES_PER_SUBFRAME, cosine_basis_symbol, 0);
+	generate_basis_symbol (SAMPLES_PER_SUBFRAME, sine_basis_symbol, 270);
 	
-	for (i = 0; i < SYMBOLS_PER_SUBFRAME * SAMPLES_PER_SYMBOL; i++)
+	for (i = 0; i < SAMPLES_PER_SUBFRAME; i++)
 	{
 		qpsk_pi_4[i]  = (cosine_basis_symbol[i] + sine_basis_symbol[i])   >> 1;
 		qpsk_3pi_4[i] = (sine_basis_symbol[i]   - cosine_basis_symbol[i]) / 2;
@@ -61,7 +61,7 @@ void gen_qpsk_symbols (int two_bit_data_packet)
 		qpsk_7pi_4[i] = (cosine_basis_symbol[i] - sine_basis_symbol[i])/2;
 	}
 	
-	for (i = 0; i < SYMBOLS_PER_SUBFRAME * SAMPLES_PER_SYMBOL; i++)
+	for (i = 0; i < SAMPLES_PER_SUBFRAME; i++)
 	{
 		printf ("\n%d", qpsk_pi_4[i]);
 		//qpsk_3pi_4[i] = (sine_basis_symbol[i]   - cosine_basis_symbol[i]) / 2;

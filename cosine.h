@@ -1,6 +1,6 @@
 #ifndef _COSINE_H
 #define _COSINE_H
-int cosine[32] = 
+int cosine_wave[32] = 
 {
 31,
 31,
