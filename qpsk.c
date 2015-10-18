@@ -79,7 +79,7 @@ void gen_qpsk_symbols (int two_bit_data_packet)
 	
 	for (i = 0; i < SAMPLES_PER_SUBFRAME; i++)
 	{
-		printf ("\n%d", qpsk_pi_4[i]);
+		printf ("\n%d", cosine_basis_symbol[i]);
 		//qpsk_3pi_4[i] = (sine_basis_symbol[i]   - cosine_basis_symbol[i]) / 2;
 		//qpsk_5pi_4[i] = -1 * ((cosine_basis_symbol[i] + sine_basis_symbol[i]) >> 1);
 		//qpsk_7pi_4[i] = (cosine_basis_symbol[i] - sine_basis_symbol[i])/2;
