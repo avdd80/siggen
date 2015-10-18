@@ -7,7 +7,7 @@
 *
 ***************************************************************************/
 #include "common.h"
-#include "consine.h"
+#include "cosine.h"
 #include <math.h>
 
 void generate_basis_symbol (int number_of_samples, int* symbol_ptr, int phase)
